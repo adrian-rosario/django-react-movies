@@ -1,0 +1,90 @@
+.largeFirstLetter:first-letter {
+  float: left;
+  font-size: 5rem;
+  line-height: 4rem;
+  padding: 0 0.25rem 0 0;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.homepageCard {
+  width: 350px;
+}
+
+.homeImages-jar {
+  float: right;
+  margin-left: 8px;
+}
+
+.homeImages-jar img {
+  margin: 0 0 0.25rem 0;
+}
+
+.homeImages-jar button {
+  margin: 0.25rem 0 0 0;
+}
+
+.homeImages-jar img {
+  width: 100px;
+  text-align: right;
+}
+
+.plot-jar button {
+  padding-left: 0;
+}
+
+.movieDetail-imageJar {
+  border: 1px dotted #adb5bd;
+  text-align: center;
+  width: 370px;
+  margin: 0 auto;
+}
+
+.movieDetail-imageJar img {
+  width: 350px;
+  margin: 10px;
+}
+
+.movieDetailPageImage-jar {
+  border: 1px dotted #adb5bd;
+  padding: 10px;
+  width: 520px;
+}
+
+.movieDetailPageImage-jar img {
+  width: 500px;
+}
+
+.adminIcon {
+  margin-top: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.adminMoviesListImage {
+  width: 80px;
+}
+
+.missionPageImage-jar {
+  float: right;
+  margin-left: 10px;
+  border: 1px dotted #adb5bd;
+  padding: 10px;
+}
+
+.missionPageImage-jar img {
+  width: 350px;
+}
+
+.homepage .card-title {
+  line-height: 2.1rem;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.pullQuote {
+  font-size: 1.5rem;
+}
