@@ -1,3 +1,5 @@
+<a id='top'></a>
+
 # django-react-movies
 
 ## Version
@@ -8,8 +10,9 @@ Web application showcasing movie descriptions, ratings, and images for users. Bu
 
 The application allows users to post movies, upload an image, and rate movies with comments. There are admin screens and endpoints for managing the movies, users, and ratings. The project integrates a RESTful API with a React frontend.
 
-- **Backend**: Django Rest Framework, Simple JWT, Pillow
-- **Frontend**: React, React Router, React Bootstrap, Font Awesome, Vite, Axios, Redux
+- **Backend**: [Django](#django) Rest Framework, Simple JWT, Pillow
+  - API Documentation: [Movies](#api-movies) , [Users](#api-users)
+- **Frontend**: [React](#react), React Router, React Bootstrap, Font Awesome, Vite, Axios, Redux
 - **Database**: SQLite
 
 ## Usage
@@ -37,7 +40,11 @@ Fom the home page, unauthenticated users can access the movies list and movie de
 <img src='/screenshots/admin-all-ratings.png' alt='admin-all-ratings' style='width: 200px;' />
 </div>
 
-### **Backend (Django)**
+<a id="django"></a>
+
+[Top](#top)
+
+### **Backend, Django**
 
 ```plaintext
 movies/
@@ -114,7 +121,11 @@ movies/
 
 ---
 
-### **Frontend (React)**
+<a id="react"></a>
+
+[Top](#top)
+
+### **Frontend, React**
 
 ```plaintext
 frontend/
@@ -155,7 +166,13 @@ frontend/
 4. **Access the frontend**:
    - The React application will be available at `http://localhost:5173/`.
 
-## API Endpoints
+---
+
+<a id="api-movies"></a>
+
+[Top](#top)
+
+## API Endpoints, Movies
 
 ### GET /api/movies/
 
@@ -199,63 +216,6 @@ frontend/
     "starring": "Humphrey ...",
     "cinematographer": "Arthur Edeson"
   }
-  ```
-
-### GET /user/profile/
-
-- **Description**: Retrieve user details
-- **Authentication**: Yes, user
-- **Request Body**: None
-- **Response**:
-  ```json
-  {
-    "id": 1,
-    "username": "userEmail",
-    "email": "userEmail",
-    "name": "Example",
-    "is_admin": true
-  }
-  ```
-
-### GET /user/{user_id}
-
-- **Description**: Admin, retrieve user details
-- **Authentication**: Yes, admin
-- **Request Body**: None
-- **Response**:
-  ```json
-  {
-    "id": 8,
-    "username": "userEmail",
-    "email": "userEmail",
-    "name": "userName",
-    "is_admin": false
-  }
-  ```
-
-### GET /user/users/
-
-- **Description**: Admin, retrieve list of users
-- **Authentication**: Yes, admin
-- **Request Body**: None
-- **Response**:
-  ```json
-  [
-    {
-      "id": 1,
-      "username": "userOneEmail",
-      "email": "userOneEmail",
-      "name": "userOneName",
-      "is_admin": true
-    },
-    {
-      "id": 6,
-      "username": "userTwoEmail",
-      "email": "userTwoEmail",
-      "name": "userTwoName",
-      "is_admin": false
-    }
-  ]
   ```
 
 ### GET /api/ratings/
@@ -352,31 +312,6 @@ frontend/
 ]
 ```
 
-### POST /user/token/
-
-- **Description**: User login, acquire JSON Web Token
-- **Authentication**: None
-- **Request Body**:
-  ```json
-  {
-    "username": "testUserEmail",
-    "password": "testUserPassword"
-  }
-  ```
-- **Response**:
-  ```json
-  {
-    "refresh": "jsonWebTokenValue",
-    "access": "jsonWebTokenValue",
-    "id": 1,
-    "username": "userEmail",
-    "email": "userEmail",
-    "name": "User",
-    "is_admin": true,
-    "token": "jsonWebTokenValue"
-  }
-  ```
-
 ### POST /api/movies/new-movie/
 
 - **Description**: Add a new movie
@@ -436,32 +371,6 @@ frontend/
 }
 ```
 
-### POST /user/new/
-
-- **Description**: Add new user
-- **Authentication**: None
-- **Request Body**:
-
-```json
-{
-  "name": "Person",
-  "email": "person@email.com",
-  "password": "userPassword123"
-}
-```
-
-- **Response**:
-
-```json
-{
-  "id": 17,
-  "username": "person@email.com",
-  "email": "person@email.com",
-  "name": "Person",
-  "is_admin": false
-}
-```
-
 ### POST /api/image/
 
 - **Description**: Add image to movie
@@ -509,6 +418,138 @@ frontend/
   "director": "somebody baxter",
   "starring": "peaople, animals, places",
   "cinematographer": "person, perons, teams"
+}
+```
+
+### DELETE /api/movies/delete/{movie_id}
+
+- **Description**: Delete movie
+- **Authentication**: Yes, admin
+- **Request Body**: None
+- **Response**:
+  `"Movie deleted successfully"`
+
+### DELETE /api/rating/delete/{rating_id}
+
+- **Description**: Delete Rating
+- **Authentication**: Yes, admin
+- **Request Body**: None
+- **Response**:
+  `"Rating deleted successfully"`
+
+---
+
+<a id="api-users"></a>
+
+[Top](#top)
+
+## API Endpoints, Users
+
+### GET /user/profile/
+
+- **Description**: Retrieve user details
+- **Authentication**: Yes, user
+- **Request Body**: None
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "username": "userEmail",
+    "email": "userEmail",
+    "name": "Example",
+    "is_admin": true
+  }
+  ```
+
+### GET /user/{user_id}
+
+- **Description**: Admin, retrieve user details
+- **Authentication**: Yes, admin
+- **Request Body**: None
+- **Response**:
+  ```json
+  {
+    "id": 8,
+    "username": "userEmail",
+    "email": "userEmail",
+    "name": "userName",
+    "is_admin": false
+  }
+  ```
+
+### GET /user/users/
+
+- **Description**: Admin, retrieve list of users
+- **Authentication**: Yes, admin
+- **Request Body**: None
+- **Response**:
+  ```json
+  [
+    {
+      "id": 1,
+      "username": "userOneEmail",
+      "email": "userOneEmail",
+      "name": "userOneName",
+      "is_admin": true
+    },
+    {
+      "id": 6,
+      "username": "userTwoEmail",
+      "email": "userTwoEmail",
+      "name": "userTwoName",
+      "is_admin": false
+    }
+  ]
+  ```
+
+### POST /user/token/
+
+- **Description**: User login, acquire JSON Web Token
+- **Authentication**: None
+- **Request Body**:
+  ```json
+  {
+    "username": "testUserEmail",
+    "password": "testUserPassword"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "refresh": "jsonWebTokenValue",
+    "access": "jsonWebTokenValue",
+    "id": 1,
+    "username": "userEmail",
+    "email": "userEmail",
+    "name": "User",
+    "is_admin": true,
+    "token": "jsonWebTokenValue"
+  }
+  ```
+
+### POST /user/new/
+
+- **Description**: Add new user
+- **Authentication**: None
+- **Request Body**:
+
+```json
+{
+  "name": "Person",
+  "email": "person@email.com",
+  "password": "userPassword123"
+}
+```
+
+- **Response**:
+
+```json
+{
+  "id": 17,
+  "username": "person@email.com",
+  "email": "person@email.com",
+  "name": "Person",
+  "is_admin": false
 }
 ```
 
@@ -576,18 +617,4 @@ frontend/
 - **Response**:
   `"User deleted."`
 
-### DELETE /api/movies/delete/{movie_id}
-
-- **Description**: Delete movie
-- **Authentication**: Yes, admin
-- **Request Body**: None
-- **Response**:
-  `"Movie deleted successfully"`
-
-### DELETE /api/rating/delete/{rating_id}
-
-- **Description**: Delete Rating
-- **Authentication**: Yes, admin
-- **Request Body**: None
-- **Response**:
-  `"Rating deleted successfully"`
+[Top](#top)
