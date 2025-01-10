@@ -10,9 +10,9 @@ Web application showcasing movie descriptions, ratings, and images for users. Bu
 
 The application allows users to post movies, upload an image, and rate movies with comments. There are admin screens and endpoints for managing the movies, users, and ratings. The project integrates a RESTful API with a React frontend.
 
-- **Backend**: [Django](#django) Rest Framework, Simple JWT, Pillow
+- **Backend**: [Django](#django) Rest Framework, Simple JWT, Pillow. [Source code](https://github.com/adrian-rosario/django-react-movies/tree/main/movies/movieplatform/movieapp)
   - API Documentation: [Movies](#api-movies) , [Users](#api-users)
-- **Frontend**: [React](#react), React Router, React Bootstrap, Font Awesome, Vite, Axios, Redux
+- **Frontend**: [React](#react), React Router, React Bootstrap, Font Awesome, Vite, Axios, Redux. [Source code](https://github.com/adrian-rosario/django-react-movies/tree/main/frontend/movies-web/src)
 - **Database**: SQLite
 
 ## Usage
