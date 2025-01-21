@@ -38,8 +38,17 @@ def list_rating(request, id):
 @api_view(['GET'])
 def list_ratings_for_movie(request, id):
   ratings = Rating.objects.filter(movie=id)
+
+  # add each rating user first name to the response
+  rating_data = []
+  for rating in ratings:
+     rating_data.append({
+       'first_name': rating.user.first_name,
+    })
+  
   serializer = RatingSerializer(ratings, many=True)
-  return Response(serializer.data)
+  return Response({'ratings': serializer.data, 'users': rating_data })
+
 
 @api_view(['GET'])
 def listRandomRating(request):
