@@ -39,8 +39,8 @@ def register_new_user(request):
   try:
     new_user = User.objects.create(
       first_name = data['name'],
-      username = data['email'],
-      email = data['email'],
+      username = data['email'].lower(),
+      email = data['email'].lower(),
       password = make_password(data['password'])      
     )
     serializer = UserSerializer(new_user, many=False)
